@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Kiran K S - Portfolio</title>
+    <style>
+        :root {
+            --primary: #ffffff;
+            --secondary: #ff007f; /* Bold but readable */
+            --accent: #f6765f; /* Neon accent for borders and hovers */
+            --bg: #1a1a2e;
+            --text: #eaeaea;
+            --card-bg: #21243d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: var(--card-bg);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 8rem;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 2.2rem;
+            text-decoration: none;
+            width: 3.5rem;  
+            height: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #6e45e2, #88d3ce);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--bg);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .experience-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            border-left: 2px solid var(--secondary);
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--secondary);
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .timeline-content h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 6rem;
+            }
+
+            .hero-text {
+                padding-right: 0;
+                padding-top: 2rem;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="logo">KKS</a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="section hero">
+        <div class="hero-text">
+            <h1>Hi, I'm Kiran K S</h1>
+            <p>I am a Computer Science graduate with specializations in Data Analytics, AI/ML, and Web Development. I have a deep passion for coding and enjoy solving complex problems through innovative solutions.</p>
+            <div class="social-icons">
+                <a href="https://linkedin.com/in/kiran-k-s-427362246" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/Kiranks200" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:kiranks638@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="assests/Kiran_Resume .pdf" target="_blank">
+                    <i class="fas fa-file"></i>
+                </a>
+            </div>
+            
+        </div>
+        <div class="profile-container">
+            <img src="assests/Photo from Kiran K S.png" alt="Kiran K S" class="profile-img">
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Programming Languages</h3>
+                <p>Python, Java, C/C++</p>
+            </div>
+            <div class="skill-card">
+                <h3>Web Development</h3>
+                <p>React, HTML, CSS, JavaScript, MERN Stack</p>
+            </div>
+            <div class="skill-card">
+                <h3>Data Analytics</h3>
+                <p>Pandas, NumPy, Scikit-learn, TensorFlow</p>
+            </div>
+            <div class="skill-card">
+                <h3>Database & Tools</h3>
+                <p>MySQL, Oracle SQL, Git, Docker, AWS, MongoDB</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Skin Disease Detection</h3>
+                    <p>Developed a machine learning model using metaheuristic algorithms (CNN) in Python, achieving 89.23% accuracy in Skin Disease detection. Conducted extensive experimentation and fine-tuning to optimize model performance.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">CNN</span>
+                        <span class="tech-tag">Machine Learning</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Hotel Booking Data Analysis</h3>
+                    <p>Implemented multiple classifiers to predict hotel booking cancellations. Conducted data preprocessing, feature engineering, and model evaluation using various metrics and visualization techniques.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Data Analysis</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Organ Donation Management System</h3>
+                    <p>A DBMS project connecting organ donors and patients using XAMPP as local web server with MERN stack and MySQL. Designed user interfaces using Figma.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">MERN Stack</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Figma</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>AI/ML Intern - Inflow Technologies</h3>
+                    <p>August 2023 - October 2023</p>
+                    <ul>
+                        <li>Gained proficiency in AIML technologies and Python libraries</li>
+                        <li>Designed and implemented a movie recommendation system</li>
+                        <li>Increased efficiency by 85% through optimization</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Full Stack Web Development Intern - Varcons Technologies</h3>
+                    <p>August 2022 - September 2022</p>
+                    <ul>
+                        <li>Worked with MERN stack development</li>
+                        <li>Designed and executed websites including portfolios and web clones</li>
+                        <li>Utilized Thunder client extension for API testing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add active class to nav links on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                const id = section.getAttribute('id');
+                
+                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.style.color = link.getAttribute('href') === `#${id}` ? 'var(--secondary)' : 'var(--text)';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
