@@ -127,16 +127,17 @@
             flex: 1;
             display: flex;
             justify-content: center;
+            align-items: center;
         }
 
         .profile-img {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--secondary);
-        }
-
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--secondary);
+    animation: float 4s ease-in-out infinite;
+}
         .section-title {
             text-align: center;
             font-size: 2.5rem;
@@ -242,6 +243,18 @@
             color: var(--secondary);
             margin-bottom: 0.5rem;
         }
+            @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
 
         @media (max-width: 768px) {
             .hero {
@@ -287,8 +300,7 @@
     <section id="home" class="section hero">
         <div class="hero-text">
             <h1>Hi, I'm Kiran K S</h1>
-            <p>I am a Computer Science graduate with specializations in Data Analytics, AI/ML, and Web Development.</p>
-            <p>Tech Enthusiast | Solution Architect | Lifelong Learner</p>
+            <p>I am a Computer Science graduate with specializations in Data Analytics, AI/ML, and Web Development.<br><b>Tech Enthusiast | Solution Architect | Lifelong Learner</b></p>
             <div class="social-icons">
                 <a href="https://linkedin.com/in/kiran-k-s-427362246" target="_blank">
                     <i class="fab fa-linkedin"></i>
@@ -306,7 +318,7 @@
             
         </div>
         <div class="profile-container">
-            <img src="kiranprofile(300x300).png" alt="Kiran K S" class="profile-img">
+            <img src="kiranprofile (300x300).png" alt="Kiran K S" class="profile-img">
         </div>
     </section>
 
